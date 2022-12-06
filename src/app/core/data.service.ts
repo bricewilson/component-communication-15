@@ -32,8 +32,6 @@ export class DataService {
   }
 
   getAllBooks(): Observable<Book[]> {
-    // URL to get all books is /api/books
-    // return allBooks;
     return this.http.get<Book[]>('/api/books');
   }
 
@@ -42,7 +40,7 @@ export class DataService {
     dataError.errorNumber = 100;
     dataError.message = error.statusText;
     dataError.friendlyMessage = 'An error occurred retrieving data.';
-    return throwError(dataError);    
+    return throwError(() => dataError);
   }
 
   getBookById(id: number): Observable<Book> {

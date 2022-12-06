@@ -49,13 +49,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   deleteBook(bookID: number): void {
     this.dataService.deleteBook(bookID)
-      .subscribe(
-        (data: void) => {
+      .subscribe({
+        next: (data: void) => {
           let index: number = this.allBooks.findIndex(book => book.bookID === bookID);
           this.allBooks.splice(index, 1);
         },
-        (err: any) => console.log(err)
-      );
+        error: (err: any) => console.log(err)
+      });
   }
 
   deleteReader(readerID: number): void {
