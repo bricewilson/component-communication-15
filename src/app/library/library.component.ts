@@ -16,8 +16,12 @@ export class LibraryComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.allBooks = this.dataService.getAllBooks();
-    this.totalBookCount = this.allBooks.length;
+    this.dataService.getAllBooks()
+      .subscribe(
+        books => {
+          this.allBooks = books;
+          this.totalBookCount = books.length;
+        });
   }
 
   onIncrease(amount: number) {

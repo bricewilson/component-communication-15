@@ -17,13 +17,12 @@ export class AddBookComponent implements OnInit {
   saveBook(formValues: any): void {
     let newBook: Book = <Book>formValues;
     newBook.bookID = 0;
-    console.log(newBook);
-    
+
     this.dataService.addBook(newBook)
-      .subscribe(
-        (data: Book) => console.log(data),
-        (err: any) => console.log(err)
-      );
+      .subscribe({
+        next: console.log,
+        error: console.error
+    });
   }
 
 }

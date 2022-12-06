@@ -24,7 +24,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   
   ngOnInit() {
 
-    this.allBooks = this.dataService.getAllBooks();
+    //this.allBooks = this.dataService.getAllBooks();
+    this.dataService.getAllBooks()
+      .subscribe(
+        books => this.allBooks = books
+      );
 
     this.readerSubscription = this.dataService.getAllReaders()
 	    .pipe(
