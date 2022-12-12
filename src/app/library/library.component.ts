@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
 import { DataService } from '../core/data.service';
+import { InventoryService } from '../core/inventory.service';
 
 @Component({
   selector: 'app-library',
@@ -13,7 +14,12 @@ export class LibraryComponent implements OnInit {
   allBooks: Book[] = [];
   branch: string = 'Midtown';
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+              private inventoryService: InventoryService) {
+    this.inventoryService.inventory$.subscribe(
+      amount => this.totalBookCount += amount
+    );
+  }
 
   ngOnInit() {
     this.dataService.getAllBooks()
@@ -24,8 +30,8 @@ export class LibraryComponent implements OnInit {
         });
   }
 
-  onIncrease(amount: number) {
-    this.totalBookCount += amount;
-  }
+  // onIncrease(amount: number) {
+  //   this.totalBookCount += amount;
+  // }
 
 }
