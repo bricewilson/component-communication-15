@@ -40,23 +40,5 @@
         "title": "Corduroy",
         "author": "Don Freeman",
         "publicationYear": "1968"
-    },
-    {
-        "bookID": 8,
-        "title": "Long Book",
-        "author": "Wordy Guy",
-        "publicationYear": "2000"
-    },
-    {
-        "bookID": 9,
-        "title": "Short Book",
-        "author": "Concise Guy",
-        "publicationYear": "2022"
-    },
-    {
-        "bookID": 10,
-        "title": "Third Book",
-        "author": "Normal Guy",
-        "publicationYear": "2022"
     }
 ]
